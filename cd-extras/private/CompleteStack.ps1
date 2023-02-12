@@ -1,7 +1,9 @@
 function CompleteStack {
   param($commandName, $parameterName, $wordToComplete, $commandAst, $boundParameters)
 
-  $stack = if (
+  $stack = if ($commandName -match 'Use') {
+    (Get-Stack -Use)
+  } elseif(
     $commandName -and
     $commandName -match 'Redo' -or
     (

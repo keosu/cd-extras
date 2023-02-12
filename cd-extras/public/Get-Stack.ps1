@@ -39,7 +39,7 @@ Redo-Location
 #>
 function Get-Stack {
 
-  [OutputType([IndexedPath], ParameterSetName = ('Undo', 'Redo'))]
+  [OutputType([IndexedPath], ParameterSetName = ('Undo', 'Redo', 'Use'))]
   [OutputType([System.Collections.Hashtable], ParameterSetName = 'Both')]
   [CmdletBinding(DefaultParameterSetName = 'Both')]
   param(
@@ -48,11 +48,15 @@ function Get-Stack {
     [switch] $Undo,
 
     [Parameter(ParameterSetName = 'Redo')]
-    [switch] $Redo
+    [switch] $Redo,
+
+    [Parameter(ParameterSetName = 'Use')]
+    [switch] $Use
   )
 
   if ($Undo) { IndexPaths $undoStack.ToArray() }
   elseif ($Redo) { IndexPaths $redoStack.ToArray() }
+  elseif ($Use) {IndexPaths @($locSet.Keys)}
 
   else {
     @{

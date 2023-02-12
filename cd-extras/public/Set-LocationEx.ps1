@@ -192,6 +192,10 @@ Function Set-LocationEx {
   }
 
  	end {
+    if ( ! $locSet.Contains($PWD.Path))
+    {
+      $locSet.Add($PWD.Path, $true)
+    }
 
     if ($PWD.Path -ne $startLocation) {
       $redoStack.Clear()

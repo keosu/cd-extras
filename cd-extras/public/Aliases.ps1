@@ -6,6 +6,7 @@ Set-Alias xup Get-Ancestors
 Set-Alias xpa Expand-Path
 Set-Alias cd- Undo-Location
 Set-Alias cd+ Redo-Location
+Set-Alias cdh Use-Location
 Set-Alias cd: Switch-LocationPart
 Set-Alias dirs Get-Stack
 Set-Alias dirsc Clear-Stack

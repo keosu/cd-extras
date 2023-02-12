@@ -27,4 +27,5 @@ function Clear-Stack {
 
   if ($PSCmdlet.ParameterSetName -in 'Undo', 'Both') { $undoStack.Clear() }
   if ($PSCmdlet.ParameterSetName -in 'Redo', 'Both') { $redoStack.Clear() }
+  $locStack.Clear()
 }

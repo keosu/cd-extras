@@ -1,6 +1,7 @@
 ${Script:/} = [System.IO.Path]::DirectorySeparatorChar
 $Script:undoStack = [System.Collections.Stack]::new()
 $Script:redoStack = [System.Collections.Stack]::new()
+$Script:locSet = @{}
 enum CycleDirection { Undo; Redo }
 $Script:cycleDirection = [CycleDirection]::Undo # used by Step-Between
 

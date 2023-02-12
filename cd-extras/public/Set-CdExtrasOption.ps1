@@ -67,7 +67,7 @@ function Set-CdExtrasOption {
   $isUnderTest = { $Script:__cdeUnderTest -and !($Script:__cdeUnderTest = $false) }
 
   RegisterCompletions @('Step-Up') 'n' { CompleteAncestors @args }
-  RegisterCompletions @('Undo-Location', 'Redo-Location') 'n' { CompleteStack @args }
+  RegisterCompletions @('Undo-Location', 'Redo-Location', 'Use-Location') 'n' { CompleteStack @args }
 
   if ($cde.DirCompletions) {
     RegisterCompletions $cde.DirCompletions 'Path' { CompletePaths -dirsOnly @args }
